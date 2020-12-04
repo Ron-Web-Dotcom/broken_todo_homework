@@ -7,7 +7,14 @@ RSpec.describe ItemsController, :type => :controller do
     before do
       get :new, params: { project_id: project.id }
     end
+    it "assigns project" do
+      expect(assigns(:project)).to eq(project)
+    end
 
+    it "assigns new item" do
+      expect(assigns(:item)).to be_a_new(Item)
+    end
+  end
     it 'renders the new action successfully' do
       expect(response).to have_http_status :success
     end

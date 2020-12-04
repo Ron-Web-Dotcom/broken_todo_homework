@@ -1,3 +1,4 @@
+#Class Item  contains validation for the  Application Record 
 class Item < ApplicationRecord
   belongs_to :project
   validates :action,

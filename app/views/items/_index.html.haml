@@ -1,3 +1,4 @@
+//This is the index form consist of everything that is submited in the new items and also the name of the project is overhead its also can be cleared by a button
 %ul
   - if @project.items.empty?
     %li No items.
@@ -6,5 +7,27 @@
       = link_to item.action, edit_project_item_path(@project, item)
       - unless item.done?
         = button_to 'Done', { controller: :items, action: :update, id: item.id, project_id: @project.id, item: { done: true } }, { method: :patch }
-= link_to 'New Item', new_project_path(project)
+
+
+= link_to 'New Item', new_project_item_path(project), controller: :items, action: :create
+&nbsp &nbsp &nbsp
+
+= link_to 'New Project', new_project_path
+
+//= link_to 'New Project', new_project_path(project),controller: :items, method: :create ,action: :new
+
+//= button_to 'New Item', { controller: :items, action: :create, id: item.id, project_id: @project.id, item: { done: true } }, { method: :patch }
+
+//= link_to 'New Project', new_project_path(project),  method: :create, id: @item.id
+
+//= link_to 'New Project', redirect_to project_path(Project.first)
+
+//link_to 'New Project', new_project_item_path(@project, item)  method: :create, id: @item.id
+
+//= link_to 'New Project', project, method: :create, data: { confirm: 'Are you ready?' }
+//button_to 'New Project', new_project_path(item), method: :create
+
+/= link_to 'New Project', new_item_path(project), data: { disable_with: "Processsing..." } %>
+
+
 = link_to 'Clear Completed Items', clear_project_path(project), method: :delete, id: 'clearer'

@@ -1,8 +1,6 @@
-//This is the edit from consist of labels ,fields and submit button, this where you can update the items
-
-
-%h2 Edit Item
-= form_for([@project, @item], :url => { :action => :update }) do |f|
+//This is the New Items from consist of fields ,labels , submit button and also a validation for the form
+%h2 New Item
+= form_for([@project, @item]) do |f|
   - if @item.errors.any?
     #error_explanation
       %h2
@@ -13,10 +11,7 @@
           %li= msg
   .field
     = f.label :action
-    %br
+    %br/
     = f.text_field :action, size: '80'
-  .field
-    = f.label :done, 'Done?'
-    = f.check_box :done
   .actions
     = f.submit

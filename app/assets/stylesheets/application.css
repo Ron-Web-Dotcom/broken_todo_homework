@@ -11,3 +11,93 @@
  *= require_self
  *= require layout
  */
+/* Import fonts */
+
+/* Style the Home Page */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+
+
+body {
+ background-image: url('/assets/background.jpg');
+  background-color: #666666;
+  height: 600px;
+  color: #5a5a5a;
+  font-size: 20px;
+    font-family: 'Lato', sans-serif;
+background-size: cover;}  /* For a full size background image */
+
+}
+
+html {
+ background-image: url('/assets/background.jpg');
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color:#696E74;
+}
+
+.nopadding {
+  padding: 0px !important;
+  margin: 0px;
+}
+
+.mt {margin-top: 50px;}
+.mb {margin-bottom: 50px;}
+.mtb {margin-top: 50px; margin-bottom: 50px;}
+.mtb2 { margin-top: 100px; margin-bottom: 100px;}
+.ptb {padding-top: 80px; padding-bottom: 80px;}
+.ml {margin-left: 2em;}
+
+.z-top {
+  z-index: 1000;
+}
+
+li {
+  min-height: 3em;
+}
+
+div.field_with_errors input {
+  background-color: #ffa;
+  border: 1px solid red;
+}
+
+
+
+/* header */
+#navbar {
+  min-height: 38px;
+  background-color: #f55e55;
+}
+#navbar a.brand { font-size: 18px; }
+navbar a.brand:hover {
+ color: #fff;
+ background-color: transparent;
+ text-decoration: none;
+}
+#nav-header {
+  color: white;
+}
+
+
+/* footer */
+#f {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: #666666;
+}
+
+#f i {
+  margin-right: 30px;
+  font-size: 135px;
+}
+
+#f a {
+  color: white;
+}

@@ -1,3 +1,6 @@
+
+#ApplicationController inherit  from ItemController in the ItemController with various methods and function
+
 class ItemsController < ApplicationController
   before_action :get_project
 

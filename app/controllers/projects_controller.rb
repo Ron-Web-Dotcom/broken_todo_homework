@@ -1,5 +1,8 @@
+
+#ApplicationController inherit  from ProjectsController in the ProjectController with various methods and function
+
 class ProjectsController < ApplicationController
-  before_action :set_project, except: %i[index new create]
+  before_action :set_project, except:[:index, :new, :create, :show_all_project_details]
 
   def index
     @projects = Project.all
@@ -7,7 +10,28 @@ class ProjectsController < ApplicationController
 
   def show
   end
+def show_all_project_details
+    @projects = Project.all.where(deleted: [false, nil])
 
+    filtered_project_list = []
+
+    @projects.each do |project|
+
+      items = []
+
+      project.items.each do |item|
+        items << {:action => item.action, :done => item.done}
+      end
+
+      filtered_project_list << {
+        :title => project.title, :items => items
+      }
+
+    end
+
+    render :json => filtered_project_list
+
+  end
   def new
     @project = Project.new
   end
@@ -58,7 +82,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html {
                     redirect_to project_path(@project),
-                    notice: 'Completed items were successfully cleared.'
+                    notice: 'There are no completed items for this project.' 
                   }
     end
   end
